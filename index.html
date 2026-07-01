@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Fat Loss Training Plan — 10 kg in 3 months</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Inter',system-ui,sans-serif;background:#0F0F13;color:#F1F1F3;min-height:100vh;padding:28px 16px;}
+  .wrap{max-width:680px;margin:0 auto;}
+  h1{font-size:26px;font-weight:800;line-height:1.2;margin-bottom:4px;}
+  .sub{font-size:11px;font-weight:700;letter-spacing:0.15em;color:#9CA3AF;text-transform:uppercase;margin-bottom:8px;}
+  .tabs{display:flex;gap:6px;flex-wrap:wrap;margin:20px 0;}
+  .tab{background:#1C1C24;color:#9CA3AF;border:none;border-radius:8px;padding:7px 15px;font-size:13px;font-weight:600;cursor:pointer;transition:all 0.15s;}
+  .tab.active{color:#fff;}
+  .card{background:#1C1C24;border-radius:16px;padding:22px;margin-bottom:14px;border:1px solid #2a2a35;}
+  .card-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:18px;}
+  .day-name{font-size:22px;font-weight:800;margin-bottom:4px;}
+  .day-tag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;}
+  .dur-box{border-radius:10px;padding:8px 14px;text-align:center;}
+  .dur-label{font-size:10px;font-weight:700;text-transform:uppercase;margin-bottom:2px;}
+  .dur-val{font-size:14px;font-weight:800;}
+  .cardio-block{border-radius:12px;padding:14px;margin-bottom:14px;border-left:3px solid;}
+  .block-label{font-size:10px;font-weight:700;text-transform:uppercase;color:#6B7280;margin-bottom:4px;}
+  .block-title{font-size:15px;font-weight:700;margin-bottom:2px;}
+  .block-note{font-size:13px;color:#9CA3AF;}
+  .ex-row{display:flex;justify-content:space-between;align-items:center;background:#13131A;border-radius:10px;padding:11px 14px;margin-bottom:6px;}
+  .ex-num{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;}
+  .ex-name{font-size:14px;font-weight:600;margin-left:10px;}
+  .ex-sets{font-size:13px;font-weight:700;}
+  .month-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+  .month-box{background:#13131A;border-radius:10px;padding:14px;}
+  .month-title{font-size:12px;font-weight:800;color:#22C55E;margin-bottom:6px;}
+  .month-focus{font-size:11px;color:#9CA3AF;margin-bottom:3px;line-height:1.4;}
+  .month-km{font-size:11px;color:#6B7280;margin-bottom:8px;}
+  .month-target{font-size:16px;font-weight:800;}
+  .tips-row{display:flex;gap:12px;align-items:flex-start;margin-bottom:10px;}
+  .tip-icon{font-size:18px;flex-shrink:0;}
+  .tip-text{font-size:13px;color:#D1D5DB;line-height:1.5;}
+  .rest-msg{text-align:center;padding:20px 0;color:#4B5563;font-size:14px;}
+  .workout-label{font-size:10px;font-weight:700;text-transform:uppercase;color:#6B7280;margin-bottom:10px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="sub">10 kg · 3 months · IIT BBS</div>
+  <h1>Your fat loss <span id="accent-title">training plan</span></h1>
+  <div class="tabs" id="tabs"></div>
+  <div class="card" id="day-card"></div>
+  <div class="card">
+    <div class="block-label" style="margin-bottom:14px;">Monthly progression</div>
+    <div class="month-grid">
+      <div class="month-box"><div class="month-title">Month 1</div><div class="month-focus">Build habit & base cardio fitness</div><div class="month-km">3–5 km runs</div><div class="month-target">−3 kg</div></div>
+      <div class="month-box"><div class="month-title">Month 2</div><div class="month-focus">Increase intensity & add weights</div><div class="month-km">5–7 km runs</div><div class="month-target">−3.5 kg</div></div>
+      <div class="month-box"><div class="month-title">Month 3</div><div class="month-focus">Peak effort, HIIT focus</div><div class="month-km">7–10 km runs</div><div class="month-target">−3.5 kg</div></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="block-label" style="margin-bottom:14px;">Key rules</div>
+    <div class="tips-row"><span class="tip-icon">🔥</span><span class="tip-text">Target 500–700 kcal deficit daily (diet + exercise combined)</span></div>
+    <div class="tips-row"><span class="tip-icon">💧</span><span class="tip-text">Drink 3–4 L water daily — crucial for metabolism & recovery</span></div>
+    <div class="tips-row"><span class="tip-icon">🥗</span><span class="tip-text">Eat high-protein, low-refined-carb — daal, eggs, paneer, sprouts</span></div>
+    <div class="tips-row"><span class="tip-icon">😴</span><span class="tip-text">Sleep 7–8 hrs — poor sleep kills fat loss progress</span></div>
+    <div class="tips-row"><span class="tip-icon">📈</span><span class="tip-text">Progressive overload — increase reps/intensity every 2 weeks</span></div>
+    <div class="tips-row"><span class="tip-icon">⚖️</span><span class="tip-text">Weigh yourself once a week, same time, same conditions</span></div>
+  </div>
+</div>
+<script>
+const days=[
+  {day:"Monday",short:"Mon",tag:"Cardio + Upper Body",color:"#EF4444",cardio:"Running / Brisk Walk",duration:"30 min",note:"Moderate pace, 5–6 km",exercises:[["Push-ups","4 × 15"],["Dumbbell Shoulder Press","3 × 12"],["Tricep Dips (chair)","3 × 15"],["Plank Hold","3 × 45 sec"]]},
+  {day:"Tuesday",short:"Tue",tag:"Cardio + Core",color:"#F97316",cardio:"Cycling / Jump Rope",duration:"25 min",note:"High intensity intervals",exercises:[["Crunches","4 × 20"],["Leg Raises","3 × 15"],["Russian Twists","3 × 20"],["Mountain Climbers","3 × 30 sec"]]},
+  {day:"Wednesday",short:"Wed",tag:"Active Recovery",color:"#22C55E",cardio:"Light Walk / Yoga / Stretching",duration:"30–40 min",note:"Low intensity, keep moving",exercises:[["Full-body Stretch","15 min"],["Foam Roll / Mobility","10 min"]]},
+  {day:"Thursday",short:"Thu",tag:"Cardio + Lower Body",color:"#3B82F6",cardio:"Running",duration:"35 min",note:"Push for 6–7 km",exercises:[["Squats","4 × 20"],["Lunges (each leg)","3 × 15"],["Glute Bridges","3 × 20"],["Calf Raises","3 × 25"]]},
+  {day:"Friday",short:"Fri",tag:"HIIT + Full Body",color:"#8B5CF6",cardio:"HIIT Circuit",duration:"25 min",note:"20s on / 10s off × 8 rounds",exercises:[["Burpees","4 × 10"],["Jump Squats","3 × 15"],["Push-ups + Knee Tuck","3 × 12"],["High Knees","3 × 40 sec"]]},
+  {day:"Saturday",short:"Sat",tag:"Long Cardio",color:"#EC4899",cardio:"Long Run / Swim / Sport",duration:"45–60 min",note:"Steady state, enjoy it",exercises:[["Pull-ups / Rows","3 × max"],["Dips","3 × 12"],["Core Circuit","2 rounds"]]},
+  {day:"Sunday",short:"Sun",tag:"Rest Day",color:"#6B7280",cardio:"Complete Rest or Easy Walk",duration:"Optional 20 min",note:"Let your body recover",exercises:[]}
+];
+let sel=0;
+function render(){
+  const d=days[sel];
+  const c=d.color;
+  document.getElementById('accent-title').style.color=c;
+  document.getElementById('day-card').style.borderColor=c+'40';
+  const exHTML=d.exercises.length
+    ?`<div class="workout-label">Strength / Workout</div>`+d.exercises.map(([n,s],i)=>`<div class="ex-row"><div style="display:flex;align-items:center;"><div class="ex-num" style="background:${c}25;color:${c};">${i+1}</div><span class="ex-name">${n}</span></div><span class="ex-sets" style="color:${c};">${s}</span></div>`).join('')
+    :`<div class="rest-msg">🛌 Rest day — your muscles grow when you recover</div>`;
+  document.getElementById('day-card').innerHTML=`
+    <div class="card-header">
+      <div><div class="day-name">${d.day}</div><div class="day-tag" style="color:${c};">${d.tag}</div></div>
+      <div class="dur-box" style="background:${c}18;">
+        <div class="dur-label" style="color:${c};">Duration</div>
+        <div class="dur-val">${d.duration}</div>
+      </div>
+    </div>
+    <div class="cardio-block" style="background:#13131A;border-color:${c};">
+      <div class="block-label">Cardio</div>
+      <div class="block-title">${d.cardio}</div>
+      <div class="block-note">${d.note}</div>
+    </div>
+    ${exHTML}`;
+  document.querySelectorAll('.tab').forEach((b,i)=>{
+    b.classList.toggle('active',i===sel);
+    b.style.background=i===sel?days[i].color:'#1C1C24';
+  });
+}
+const tabs=document.getElementById('tabs');
+days.forEach((d,i)=>{
+  const b=document.createElement('button');
+  b.className='tab';b.textContent=d.short;
+  b.onclick=()=>{sel=i;render();};
+  tabs.appendChild(b);
+});
+render();
+</script>
+</body>
+</html>
